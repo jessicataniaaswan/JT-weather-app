@@ -1,0 +1,135 @@
+h1 {
+  font-family: "Open Sans", sans-serif;
+  color: #fff;
+  font-size: 36px;
+  margin: 8px 0;
+}
+
+li {
+  margin: 15px;
+}
+
+.weatherApp {
+  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+  border: 1px solid #d9d9d9;
+  border-radius: 20px;
+  padding: 30px;
+  margin: 25px;
+  max-width: 600px;
+}
+
+.searchBar {
+  display: block;
+  margin: 0 auto;
+  padding: 0px;
+}
+
+#currentDate {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  color: #fff;
+}
+
+.currentWeather {
+  padding: 0;
+  margin: 0;
+}
+
+.mainImage {
+  position: relative;
+  top: 15px;
+  left: 120px;
+  width: 130px;
+  padding-bottom: 10px;
+}
+
+#temperature {
+  position: relative;
+  top: -10px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 52px;
+}
+
+#currentSituation {
+  padding: 19px 120px 0 0px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 32px;
+  color: #fff;
+}
+
+.units {
+  position: relative;
+  top: -33px;
+  font-size: 18px;
+  color: #fff;
+}
+
+hr {
+  border-top: 1px solid #fff;
+}
+
+#celcius-link {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  color: #fff;
+}
+
+#fahrenheit-link {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  color: #fff;
+}
+
+.titleCondition {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  color: #fff;
+}
+
+.iconCondition {
+  font-size: 20px;
+  color: #fff;
+}
+
+.detailCondition {
+  list-style: none;
+  padding: 58px 0 0 35px;
+  margin: 35px 0 0 0;
+  color: #fff;
+}
+
+#windNumber {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  color: #fff;
+}
+
+#humidityNumber {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  color: #fff;
+}
+
+.upcomingWeather {
+  text-align: center;
+  padding: 0;
+  margin: 25px 0 0;
+  color: #fff;
+}
+
+.upcomingIcon {
+  width: 64px;
+  height: 64px;
+}
+
+.day {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  color: #fff;
+}
+
+.temperature {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  color: #fff;
+}
