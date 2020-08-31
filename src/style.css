@@ -133,3 +133,8 @@ hr {
   font-size: 18px;
   color: #fff;
 }
+
+#madeBy {
+  position: relative;
+  left: 250px;
+}
