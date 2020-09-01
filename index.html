@@ -27,8 +27,8 @@
       <div class="weatherApp" id="weatherContainer">
         <div class="searchBar">
           <div class="row">
-            <div class="col-8">
-              <form id="search-form">
+            <div class="col-12">
+              <form id="search-form" style="display: flex">
                 <input
                   class="form-control mr-sm-2"
                   type="search"
@@ -37,17 +37,33 @@
                   autofocus="off"
                   id="search-text-input"
                 />
+                <div
+                  class="col-3"
+                  style="padding-left: 5px; padding-right: 5px"
+                >
+                  <button
+                    type="submit"
+                    class="btn btn-light"
+                    id="searchButton"
+                    style="width: 100%"
+                  >
+                    Search
+                  </button>
+                </div>
+                <div
+                  class="col-3"
+                  style="padding-left: 5px; padding-right: 5px"
+                >
+                  <button
+                    type="submit"
+                    class="btn btn-light"
+                    id="currentButton"
+                    style="width: 100%"
+                  >
+                    Current
+                  </button>
+                </div>
               </form>
-            </div>
-            <div class="col-0">
-              <button type="submit" class="btn btn-light" id="searchButton">
-                Search
-              </button>
-            </div>
-            <div class="col-1">
-              <button type="submit" class="btn btn-light" id="currentButton">
-                Current
-              </button>
             </div>
           </div>
         </div>

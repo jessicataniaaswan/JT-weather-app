@@ -1,8 +1,31 @@
 function changeBackground() {
+  console.log(currentHour);
   if (currentHour > 18) {
-    document.querySelector("#weatherContainer").style = "white";
+    document.getElementById("weatherContainer").style.backgroundImage =
+      "linear-gradient(to top, #09203f 0%, #537895 100%)";
   } else {
-    document.querySelector("#weatherContainer").style = "red";
+    document.getElementById("weatherContainer").style.backgroundImage =
+      "linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)";
+    var alles = document
+      .getElementById("weatherContainer")
+      .querySelectorAll("a, div, span, p, h1");
+    for (var i = 0; i < alles.length; i++) {
+      alles[i].style.color = "black";
+    }
+
+    var alles = document
+      .getElementById("weatherContainer")
+      .querySelectorAll("hr");
+    for (var i = 0; i < alles.length; i++) {
+      alles[i].style.border = "1px solid #b3b3b3";
+
+      var alles = document
+        .getElementById("weatherContainer")
+        .querySelectorAll("button");
+      for (var i = 0; i < alles.length; i++) {
+        alles[i].style.backgroundColor = "#d9d9d9";
+      }
+    }
   }
 }
 
