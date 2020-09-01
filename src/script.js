@@ -1,7 +1,17 @@
+function changeBackground() {
+  if (currentHour > 18) {
+    document.querySelector("#weatherContainer").style = "white";
+  } else {
+    document.querySelector("#weatherContainer").style = "red";
+  }
+}
+
 function showTemperature(response) {
+  console.log(response.data);
   document.querySelector("h1").innerHTML = response.data.name;
   let temperature = Math.round(response.data.main.temp);
   let heading = document.querySelector(".temperature");
+  let iconElement = document.querySelector("#icon");
   heading.innerHTML = temperature;
   document.querySelector("#windNumber").innerHTML = Math.round(
     response.data.wind.speed
@@ -11,6 +21,10 @@ function showTemperature(response) {
   );
   document.querySelector("#currentSituation").innerHTML =
     response.data.weather[0].main;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function retrievePosition(position) {
@@ -56,6 +70,7 @@ let currentDay = days[currentTime.getDay()];
 let currentDate = currentTime.getDate();
 let currentMonth = months[currentTime.getMonth()];
 let currentYear = currentTime.getFullYear();
+let currentHour = currentTime.getHours();
 
 let nowDate = document.querySelector("#currentDate");
 nowDate.innerHTML = `${currentDay}, ${currentDate} ${currentMonth} ${currentYear}`;
@@ -109,3 +124,4 @@ let tempFahrenheit = document.querySelector("#fahrenheit-link");
 tempFahrenheit.addEventListener("click", showFahrenheit);
 
 search("New York");
+changeBackground();
