@@ -30,9 +30,10 @@ function changeBackground() {
 }
 
 function showTemperature(response) {
+  celciusTemperature = response.data.main.temp;
   console.log(response.data);
   document.querySelector("h1").innerHTML = response.data.name;
-  let temperature = Math.round(response.data.main.temp);
+  let temperature = Math.round(celciusTemperature);
   let heading = document.querySelector(".temperature");
   let iconElement = document.querySelector("#icon");
   heading.innerHTML = temperature;
@@ -131,16 +132,19 @@ insertCity.addEventListener("submit", showCity);
 function showCelcius(event) {
   event.preventDefault();
   let temperature = document.querySelector("#temperature");
-  temperature.innerHTML = "20";
+  temperature.innerHTML = Math.round(celciusTemperature);
 }
 
 let tempCelcius = document.querySelector("#celcius-link");
 tempCelcius.addEventListener("click", showCelcius);
 
+let celciusTemperature = null;
+
 function showFahrenheit(event) {
   event.preventDefault();
   let temperature = document.querySelector("#temperature");
-  temperature.innerHTML = "68";
+  let fahrenheitTemp = (celciusTemperature * 9) / 5 + 32;
+  temperature.innerHTML = Math.round(fahrenheitTemp);
 }
 
 let tempFahrenheit = document.querySelector("#fahrenheit-link");
