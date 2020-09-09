@@ -136,6 +136,10 @@ hr {
   color: #fff;
 }
 
+#forecastDay {
+  padding: 0 50px;
+}
+
 #madeBy {
   padding-top: 10px;
   text-align: center;

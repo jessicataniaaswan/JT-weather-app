@@ -99,12 +99,85 @@ let currentHour = currentTime.getHours();
 let nowDate = document.querySelector("#currentDate");
 nowDate.innerHTML = `${currentDay}, ${currentDate} ${currentMonth} ${currentYear}`;
 
+function displayForecast(response) {
+  forecastElement = document.querySelector("#forecast");
+  let forecast = response.data.list[7];
+  console.log(forecast);
+
+  forecastElement.innerHTML = `
+   <div class="col-2" id="forecastDay">
+      <div class="day">Mon</div>
+      <img
+       class="upcomingIcon"
+       src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
+       alt="sunnyIcon"
+       />
+       <div class="temperature">${Math.round(forecast.main.temp_max)}°c</div>
+       </div>
+  `;
+
+  forecast = response.data.list[16];
+  forecastElement.innerHTML += `
+   <div class="col-2" id="forecastDay">
+      <div class="day">Tue</div>
+      <img
+       class="upcomingIcon"
+       src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
+       alt="sunnyIcon"
+       />
+       <div class="temperature">${Math.round(forecast.main.temp_max)}°c</div>
+       </div>
+  `;
+
+  forecast = response.data.list[24];
+  forecastElement.innerHTML += `
+   <div class="col-2" id="forecastDay">
+      <div class="day">Wed</div>
+      <img
+       class="upcomingIcon"
+       src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
+       alt="sunnyIcon"
+       />
+       <div class="temperature">${Math.round(forecast.main.temp_max)}°c</div>
+       </div>
+  `;
+
+  forecast = response.data.list[32];
+  forecastElement.innerHTML += `
+   <div class="col-2" id="forecastDay">
+      <div class="day">Thu</div>
+      <img
+       class="upcomingIcon"
+       src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
+       alt="sunnyIcon"
+       />
+       <div class="temperature">${Math.round(forecast.main.temp_max)}°c</div>
+       </div>
+  `;
+
+  forecast = response.data.list[39];
+  forecastElement.innerHTML += `
+   <div class="col-2" id="forecastDay">
+      <div class="day">Fri</div>
+      <img
+       class="upcomingIcon"
+       src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
+       alt="sunnyIcon"
+       />
+       <div class="temperature">${Math.round(forecast.main.temp_max)}°c</div>
+       </div>
+  `;
+}
+
 function search(city) {
   let apiKey = "e3705025ac4df4eec8448cea876a48b3";
   let units = "metric";
   let apiStart = "https://api.openweathermap.org/data/2.5/weather";
   let apiUrlCity = `${apiStart}?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrlCity).then(showTemperature);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function handleSubmit(event) {
