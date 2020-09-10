@@ -39,21 +39,21 @@ li {
 
 .mainImage {
   position: relative;
-  top: 15px;
+  top: 10px;
   left: 120px;
-  width: 130px;
-  padding-bottom: 10px;
+  width: 170px;
 }
 
 #temperature {
   position: relative;
-  top: -10px;
+  top: -30px;
   font-family: "Open Sans", sans-serif;
   font-size: 52px;
 }
 
 #currentSituation {
-  padding: 19px 120px 0 0px;
+  position: relative;
+  left: -115px;
   font-family: "Open Sans", sans-serif;
   font-size: 32px;
   color: #fff;
@@ -95,7 +95,7 @@ hr {
 
 .detailCondition {
   list-style: none;
-  padding: 58px 0 0 35px;
+  padding: 80px 0 0 35px;
   margin: 35px 0 0 0;
   color: #fff;
 }
@@ -124,6 +124,11 @@ hr {
   height: 64px;
 }
 
+.extraPadding {
+  padding-left: 1.3rem !important;
+  padding-right: 1.3rem !important;
+}
+
 .day {
   font-family: "Open Sans", sans-serif;
   font-size: 18px;
@@ -134,10 +139,6 @@ hr {
   font-family: "Open Sans", sans-serif;
   font-size: 18px;
   color: #fff;
-}
-
-#forecastDay {
-  padding: 0 50px;
 }
 
 #madeBy {

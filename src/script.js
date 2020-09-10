@@ -13,6 +13,11 @@ function changeBackground() {
       alles[i].style.color = "black";
     }
 
+    var alles = document.getElementById("forecast").getElementsByTagName("*");
+    for (var i = 0; i < alles.length; i++) {
+      alles[i].style.color = "black";
+    }
+
     var alles = document
       .getElementById("weatherContainer")
       .querySelectorAll("hr");
@@ -28,6 +33,44 @@ function changeBackground() {
     }
   }
 }
+
+let weatherIcons = {};
+weatherIcons["01d"] =
+  "https://gist.githubusercontent.com/AlexBlack88/71646c046ba64fa40ce47eea3035b5df/raw/a37d18972c301462c172da1e79f0fc1da94859a0/day.svg";
+weatherIcons["01n"] =
+  "https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/night.svg";
+weatherIcons["02d"] =
+  "https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/cloudy-day-2.svg";
+weatherIcons["02n"] =
+  "hhttps://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/cloudy-night-2.svg";
+weatherIcons["03d"] =
+  "https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/cloudy.svg";
+weatherIcons["03n"] =
+  "https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/cloudy.svg";
+weatherIcons["04d"] =
+  "https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/cloudy.svg";
+weatherIcons["04n"] =
+  "https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/cloudy.svg";
+weatherIcons["09d"] =
+  "https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/rainy-6.svg";
+weatherIcons["09n"] =
+  "https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/rainy-6.svg";
+weatherIcons["10d"] =
+  "https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/rainy-3.svg";
+weatherIcons["10n"] =
+  "https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/rainy-5.svg";
+weatherIcons["11d"] =
+  "https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/thunder.svg";
+weatherIcons["11n"] =
+  "https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/thunder.svg";
+weatherIcons["13d"] =
+  "https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/snowy-6.svg";
+weatherIcons["13n"] =
+  "https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/snowy-6.svg";
+weatherIcons["50d"] =
+  "https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/cloudy.svg";
+weatherIcons["50n"] =
+  "https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/cloudy.svg";
 
 function showTemperature(response) {
   celciusTemperature = response.data.main.temp;
@@ -47,7 +90,7 @@ function showTemperature(response) {
     response.data.weather[0].main;
   iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `${weatherIcons[response.data.weather[0].icon]}`
   );
 }
 
@@ -100,16 +143,19 @@ let nowDate = document.querySelector("#currentDate");
 nowDate.innerHTML = `${currentDay}, ${currentDate} ${currentMonth} ${currentYear}`;
 
 function displayForecast(response) {
+  console.log(currentTime.getDay());
   forecastElement = document.querySelector("#forecast");
+
+  // H+1
   let forecast = response.data.list[7];
-  console.log(forecast);
+  let dayName = days[(currentTime.getDay() + 1) % 7].substring(0, 3);
 
   forecastElement.innerHTML = `
-   <div class="col-2" id="forecastDay">
-      <div class="day">Mon</div>
+   <div class="p-2 extraPadding">
+      <div class="day">${dayName}</div>
       <img
        class="upcomingIcon"
-       src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
+       src="${weatherIcons[forecast.weather[0].icon]}"
        alt="sunnyIcon"
        />
        <div class="temperature">${Math.round(forecast.main.temp_max)}°c</div>
@@ -117,12 +163,14 @@ function displayForecast(response) {
   `;
 
   forecast = response.data.list[16];
+  dayName = days[(currentTime.getDay() + 2) % 7].substring(0, 3);
+  console.log(forecast.weather[0]);
   forecastElement.innerHTML += `
-   <div class="col-2" id="forecastDay">
-      <div class="day">Tue</div>
+   <div class="p-2 extraPadding">
+      <div class="day">${dayName}</div>
       <img
        class="upcomingIcon"
-       src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
+       src="${weatherIcons[forecast.weather[0].icon]}"
        alt="sunnyIcon"
        />
        <div class="temperature">${Math.round(forecast.main.temp_max)}°c</div>
@@ -130,12 +178,13 @@ function displayForecast(response) {
   `;
 
   forecast = response.data.list[24];
+  dayName = days[(currentTime.getDay() + 3) % 7].substring(0, 3);
   forecastElement.innerHTML += `
-   <div class="col-2" id="forecastDay">
-      <div class="day">Wed</div>
+   <div class="p-2 extraPadding">
+      <div class="day">${dayName}</div>
       <img
        class="upcomingIcon"
-       src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
+       src="${weatherIcons[forecast.weather[0].icon]}"
        alt="sunnyIcon"
        />
        <div class="temperature">${Math.round(forecast.main.temp_max)}°c</div>
@@ -143,12 +192,13 @@ function displayForecast(response) {
   `;
 
   forecast = response.data.list[32];
+  dayName = days[(currentTime.getDay() + 4) % 7].substring(0, 3);
   forecastElement.innerHTML += `
-   <div class="col-2" id="forecastDay">
-      <div class="day">Thu</div>
+   <div class="p-2 extraPadding">
+      <div class="day">${dayName}</div>
       <img
        class="upcomingIcon"
-       src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
+       src="${weatherIcons[forecast.weather[0].icon]}"
        alt="sunnyIcon"
        />
        <div class="temperature">${Math.round(forecast.main.temp_max)}°c</div>
@@ -156,12 +206,13 @@ function displayForecast(response) {
   `;
 
   forecast = response.data.list[39];
+  dayName = days[(currentTime.getDay() + 5) % 7].substring(0, 3);
   forecastElement.innerHTML += `
-   <div class="col-2" id="forecastDay">
-      <div class="day">Fri</div>
+   <div class="p-2 extraPadding">
+      <div class="day">${dayName}</div>
       <img
        class="upcomingIcon"
-       src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
+       src="${weatherIcons[forecast.weather[0].icon]}"
        alt="sunnyIcon"
        />
        <div class="temperature">${Math.round(forecast.main.temp_max)}°c</div>
