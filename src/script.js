@@ -218,6 +218,8 @@ function displayForecast(response) {
        <div class="temperature">${Math.round(forecast.main.temp_max)}°c</div>
        </div>
   `;
+
+  changeBackground();
 }
 
 function search(city) {
