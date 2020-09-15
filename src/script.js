@@ -36,13 +36,13 @@ function changeBackground() {
 
 let weatherIcons = {};
 weatherIcons["01d"] =
-  "https://gist.githubusercontent.com/AlexBlack88/71646c046ba64fa40ce47eea3035b5df/raw/a37d18972c301462c172da1e79f0fc1da94859a0/day.svg";
+  "https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/day.svg";
 weatherIcons["01n"] =
   "https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/night.svg";
 weatherIcons["02d"] =
   "https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/cloudy-day-2.svg";
 weatherIcons["02n"] =
-  "hhttps://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/cloudy-night-2.svg";
+  "https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/cloudy-night-3.svg";
 weatherIcons["03d"] =
   "https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/cloudy.svg";
 weatherIcons["03n"] =
