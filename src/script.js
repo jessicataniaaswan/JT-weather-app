@@ -73,8 +73,8 @@ weatherIcons["50n"] =
   "https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/cloudy.svg";
 
 function showTemperature(response) {
+  let h1 = document.querySelector("h1");
   celciusTemperature = response.data.main.temp;
-  console.log(response.data);
   document.querySelector("h1").innerHTML = response.data.name;
   let temperature = Math.round(celciusTemperature);
   let heading = document.querySelector(".temperature");
@@ -105,6 +105,10 @@ function retrievePosition(position) {
 }
 
 navigator.geolocation.getCurrentPosition(retrievePosition);
+
+function refreshLocation() {
+  navigator.geolocation.getCurrentPosition(retrievePosition);
+}
 
 let currentTime = new Date();
 
