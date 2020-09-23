@@ -102,9 +102,9 @@ function retrievePosition(position) {
   let apiStart = "https://api.openweathermap.org/data/2.5/weather";
   let apiUrl = `${apiStart}?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showTemperature);
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
-
-navigator.geolocation.getCurrentPosition(retrievePosition);
 
 function refreshLocation() {
   navigator.geolocation.getCurrentPosition(retrievePosition);
